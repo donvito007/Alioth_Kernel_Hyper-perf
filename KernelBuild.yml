@@ -23,7 +23,7 @@ jobs:
     - name: make
       run: make O=out ARCH=arm64 CROSS_COMPILE=~/tc/gcc64/bin/aarch64-elf- CROSS_COMPILE_ARM32=~/tc/gcc32/bin/arm-eabi- -j$(nproc --all)
     - name: Kernel Image
-      run: cp out/arch/arm64/boot/Image.gz-dtb kernel-${{ env.date }}.gz
+      run: cp out/arch/arm64/boot/Image kernel-${{ env.date }}
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
