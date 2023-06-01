@@ -19,7 +19,7 @@ jobs:
         ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
         echo "date=$(/bin/date -u '+%d%m%Y%I%M')" >> $GITHUB_ENV
     - name: configure
-      run: make O=out ARCH=arm64 defconfig # Edit your defconfig here
+      run: make O=out ARCH=arm64 vendor/alioth_defconfig # Edit your defconfig here
     - name: make
       run: make O=out ARCH=arm64 CROSS_COMPILE=~/tc/gcc64/bin/aarch64-elf- CROSS_COMPILE_ARM32=~/tc/gcc32/bin/arm-eabi- -j$(nproc --all)
     - name: Kernel Image
